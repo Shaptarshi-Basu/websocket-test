@@ -16,8 +16,6 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var addr = flag.String("addr", "localhost:7070", "http service address")
-
 type broadcastMessage struct {
 	msgType int
 	value []byte
@@ -76,7 +74,7 @@ func main() {
 	http.HandleFunc("/echo", echo)
 	http.HandleFunc("/", home)
 	go handleMessages()
-	log.Fatal(http.ListenAndServe(*addr, nil))
+	log.Fatal(http.ListenAndServe(":7070", nil))
 }
 
 var homeTemplate = template.Must(template.New("").Parse(`
