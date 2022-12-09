@@ -8,6 +8,7 @@ pipeline {
         steps {
           // Output will be something like "go version go1.19 darwin/arm64"
           sh 'go version'
+          sh 'go build main.go'  
         }
       }
    }
