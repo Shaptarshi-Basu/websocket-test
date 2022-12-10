@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     tools {
        go '1.19'
     }
@@ -12,5 +12,11 @@ pipeline {
           sh 'ls'
         }
       }
+      stage('Docker Build') {
+    	agent any
+      steps {
+      	sh 'docker build -t shanem/spring-petclinic:latest .'
+      }
+    }  
    }
 }
