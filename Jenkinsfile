@@ -15,14 +15,14 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build imagename
+          dockerImage = docker.build("basu2110/chat-app:latest")
         }
       }
     }
     stage('Push image') {
       steps{
         script {
-          withDockerRegistry([ credentialsId: "docker_cred", url: "https://index.docker.io/v1/" ]) {
+          withDockerRegistry([ credentialsId: "docker_cred", url: "" ]) {
           dockerImage.push()
           }
         }
