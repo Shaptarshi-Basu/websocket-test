@@ -19,5 +19,12 @@ pipeline {
         }
       }
     }
+    stage('Push image') {
+      steps{
+        script {
+          docker.push dockerImage
+        }
+      }
+    }
   }
 }
