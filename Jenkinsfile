@@ -10,7 +10,9 @@ pipeline {
           sh 'go version'
           sh 'go build main.go'
           sh 'ls'
-          sh 'docker build -t chat-app .'  
+          script {
+          dockerImage = docker.build imagename
+          }
         }
       }
    }
