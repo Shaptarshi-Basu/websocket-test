@@ -11,7 +11,7 @@ pipeline {
           sh 'go build main.go'
           sh 'ls'
           script {
-          dockerImage = docker.build imagename
+          dockerImage = docker.build "chat-app"
           }
         }
       }
